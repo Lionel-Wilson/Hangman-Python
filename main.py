@@ -3,18 +3,18 @@ from words import words
 import string
 
 def get_valid_word(words):
-    word = random.choice(words)
+    word = random.choice(words) #Returns a random element froma  list
     while '-' in word or ' 'in word: #This allow us to to make sure we only chose words that dont have a - or space. could be used for kanji add on.
         word = random.choice(words)
 
-    return word.upper()
+    return word.upper()#makes word uppercase.
 
 def hangman():
     word = get_valid_word(words)#run function on massive words list to find a suitable word.
     #store the letters of the word as a set. making it unordered and unchangeable. 
     #e.g. if word was football, then set(word) could return {'t', 'l', 'o', 'f', 'b', 'a'} or any other random arrangement of the word.
     word_letters = set(word) 
-    alphabet = set(string.ascii_uppercase) #a set of all uppercase alphabet letters.
+    alphabet = set(string.ascii_uppercase) #a set of all uppercase alphabet letters. e.g. {A,B,C,D,E...}
     used_letters = set()#what letters the user has used will go in here. currently it's = {}
 
     lives = 6
